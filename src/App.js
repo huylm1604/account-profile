@@ -1,6 +1,19 @@
 import React from "react";
 import styles from "./App.css";
-import { Row, Col, Divider, Form, Input, Button, Typography, Table } from "antd";
+import {
+  Row,
+  Col,
+  Divider,
+  Form,
+  Input,
+  Button,
+  Typography,
+  Table,
+  Modal
+} from "antd";
+
+import { FireFilled, GiftFilled } from "@ant-design/icons";
+import { useState } from "react";
 
 const { Title } = Typography;
 // dataSource dummie data
@@ -16,25 +29,18 @@ const dataSource = [
   {
     key: "3",
     name: "Orga 3"
-  },
+  }
 ];
-
-
 
 // table columns
 const columns = [
   {
     title: "Organization Name",
     dataIndex: "name",
-    key: "name",
-    editable: true,
-    render: title => <a>{title}</a>,
+    key: "name"
   },
   {
-    render: () => (
-      <Button type="danger" >Delete</Button>
-    ),
-    
+    render: () => <Button type="danger">Delete</Button>
   }
 ];
 
@@ -61,8 +67,53 @@ function App() {
       }
     }
   };
+
+  const [visible, setVisible] = useState(false);
   return (
     <div>
+      <Button
+        type="danger"
+        style={{
+          position: "fixed",
+          right: "0",
+          top: "50%",
+          zIndex: "10",
+          transform: "rotate(-90deg)",
+          marginRight: "-40px"
+        }}
+        size="large"
+        onClick={() => setVisible(true)}
+      >
+        <FireFilled rotate="90" />
+        Feedback
+      </Button>
+      <Modal
+        title="Feedback"
+        style={{ right: 0, position: "absolute", top: "35%" }}
+        visible={visible}
+        width= '300px'
+        height= '50px'
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+      >
+        <p>
+          <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
+            <GiftFilled />
+          </Button>
+          <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
+            <GiftFilled />
+          </Button>
+          <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
+            <GiftFilled />
+          </Button>
+          <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
+            <GiftFilled />
+          </Button>
+          <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
+            <GiftFilled />
+          </Button>
+        </p>
+      </Modal>
       <Title level={2}>Account profile</Title>
       <Row style={{ marginTop: "3%" }}>
         <Col span={6} offset={8}>
@@ -164,15 +215,14 @@ function App() {
         </Col>
       </Row>
       <Divider orientation="left" className={styles.divider}>
-            <Title level={4}>My Organization</Title>
-          </Divider>
-    <Table
-      pagination={{ position: "both" }}
-      columns={columns}
-      dataSource={dataSource}
-    ></Table>
+        <Title level={4}>My Organization</Title>
+      </Divider>
+      <Table
+        pagination={{ position: "both" }}
+        columns={columns}
+        dataSource={dataSource}
+      ></Table>
     </div>
-    
   );
 }
 

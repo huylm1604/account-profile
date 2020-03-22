@@ -9,7 +9,8 @@ import {
   Button,
   Typography,
   Table,
-  Modal
+  Modal,
+  Tooltip
 } from "antd";
 
 import { FireFilled, GiftFilled } from "@ant-design/icons";
@@ -96,8 +97,8 @@ function App() {
         {/* Begin Feedback Modal */}
 
       <Modal
-        title="Feedback"
-        style={{ right: 0, position: "absolute", top: "35%" }}
+        title="How would you rate your experience?"
+        style={{ right: 0, position: "absolute", top: "35%", textAlign:"center" }}
         visible={visible}
         width= '300px'
         height= '50px'
@@ -105,24 +106,35 @@ function App() {
         onCancel={() => setVisible(false)}
       >
         <p>
+          <Tooltip placement="bottom" title="Hate">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
             <GiftFilled />
           </Button>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Dislike">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
             <GiftFilled />
           </Button>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Neutral">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
             <GiftFilled />
           </Button>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Like">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
             <GiftFilled />
           </Button>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Love">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
             <GiftFilled />
           </Button>
+          </Tooltip>
+          
         </p>
       </Modal>
-      
+
       {/* End Feedback Modal */}
 
       <Title level={2}>Account profile</Title>

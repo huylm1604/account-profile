@@ -13,7 +13,7 @@ import {
   Tooltip
 } from "antd";
 
-import { FireFilled, GiftFilled } from "@ant-design/icons";
+import { FireFilled, LikeFilled, DislikeFilled, HeartFilled, MehFilled, CloseCircleFilled } from "@ant-design/icons";
 import { useState } from "react";
 
 const { Title } = Typography;
@@ -108,27 +108,27 @@ function App() {
         <p>
           <Tooltip placement="bottom" title="Hate">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
-            <GiftFilled />
+            <CloseCircleFilled/>
           </Button>
           </Tooltip>
           <Tooltip placement="bottom" title="Dislike">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
-            <GiftFilled />
+            <DislikeFilled />
           </Button>
           </Tooltip>
           <Tooltip placement="bottom" title="Neutral">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
-            <GiftFilled />
+            <MehFilled />
           </Button>
           </Tooltip>
           <Tooltip placement="bottom" title="Like">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
-            <GiftFilled />
+            <LikeFilled />
           </Button>
           </Tooltip>
           <Tooltip placement="bottom" title="Love">
           <Button type="danger" size="large" style={{marginLeft: "10px"}} shape="circle">
-            <GiftFilled />
+            <HeartFilled />
           </Button>
           </Tooltip>
           

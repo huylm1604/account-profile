@@ -83,7 +83,7 @@ function App() {
           top: "50%",
           zIndex: "10",
           transform: "rotate(-90deg)",
-          marginRight: "-40px"
+          marginRight: "-42px"
         }}
         size="large"
         onClick={() => setVisible(true)}

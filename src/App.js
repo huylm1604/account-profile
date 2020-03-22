@@ -71,6 +71,9 @@ function App() {
   const [visible, setVisible] = useState(false);
   return (
     <div>
+
+      {/* Begin Feedback button  */}
+
       <Button
         type="danger"
         style={{
@@ -87,6 +90,11 @@ function App() {
         <FireFilled rotate="90" />
         Feedback
       </Button>
+
+        {/* End Feedback button */}
+
+        {/* Begin Feedback Modal */}
+
       <Modal
         title="Feedback"
         style={{ right: 0, position: "absolute", top: "35%" }}
@@ -114,6 +122,9 @@ function App() {
           </Button>
         </p>
       </Modal>
+      
+      {/* End Feedback Modal */}
+
       <Title level={2}>Account profile</Title>
       <Row style={{ marginTop: "3%" }}>
         <Col span={6} offset={8}>

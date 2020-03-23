@@ -15,6 +15,7 @@ import {
 
 import { FireFilled, LikeFilled, DislikeFilled, HeartFilled, MehFilled, CloseCircleFilled } from "@ant-design/icons";
 import { useState } from "react";
+import TextArea from "antd/lib/input/TextArea";
 
 const { Title } = Typography;
 // dataSource dummie data
@@ -69,7 +70,8 @@ function App() {
     }
   };
 
-  const [visible, setVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [feedbackFormVisible, setFeedbackFormVisible] = useState(false);
   return (
     <div>
 
@@ -86,7 +88,7 @@ function App() {
           marginRight: "-42px"
         }}
         size="large"
-        onClick={() => setVisible(true)}
+        onClick={() => setModalVisible(true)}
       >
         <FireFilled rotate="90" />
         Feedback
@@ -99,11 +101,12 @@ function App() {
       <Modal
         title="How would you rate your experience?"
         style={{ right: 0, position: "absolute", top: "35%", textAlign:"center" }}
-        visible={visible}
+        visible={modalVisible}
         width= '300px'
-        height= '50px'
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
+        onOk={() => setModalVisible(false)}
+        onCancel={() => setModalVisible(false)}
+        okText="Submit"
+        okType= "danger"
       >
         <p>
           <Tooltip placement="bottom" title="Hate">
@@ -133,6 +136,9 @@ function App() {
           </Tooltip>
           
         </p>
+        <TextArea visible={feedbackFormVisible} onLoad={() => setFeedbackFormVisible(false)} >
+        abc
+        </TextArea>
       </Modal>
 
       {/* End Feedback Modal */}
